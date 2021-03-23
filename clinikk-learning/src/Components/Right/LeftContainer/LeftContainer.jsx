@@ -29,8 +29,10 @@ const useStyles = makeStyles((theme) => ({
         float:"right"
     },
     recent:{
-        border:"2px solid red",
         marginTop:"30px"
+    },
+    courses:{
+        textAlign:"start"
     }
 }));
 
@@ -51,7 +53,9 @@ const LeftContainer = () => {
             <div className={classes.recent}>
                 <CoursesCarousel />
             </div>
-            <div>Courses List</div>
+            <div className={classes.courses}>
+                <h2>Courses</h2>
+            </div>
         </div>
     )
 }

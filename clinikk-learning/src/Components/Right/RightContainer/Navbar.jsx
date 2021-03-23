@@ -12,9 +12,6 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  },
   menuButton: {
     marginRight: theme.spacing(2),
   },

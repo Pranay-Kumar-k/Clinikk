@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from "./Navbar";
 import CourseCard from "./CourseCard";
+import Statistics from "./Statistics";
+import { Premium } from "./Premium";
 
 const useStyles = makeStyles((theme) => ({
     container:{
@@ -17,6 +19,8 @@ const RightContainer = () => {
         <div className={classes.container}>
             <Navbar />
             <CourseCard />
+            {/* <Statistics /> */}
+            <Premium />
         </div>
     )
 }

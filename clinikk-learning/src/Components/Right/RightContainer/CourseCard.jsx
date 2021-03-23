@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
         flexDirection:"row"
     },
     completed:{
-        flex:"45%",
         display:"flex",
         // border:"2px solid black",
         flexDirection:"row",
@@ -19,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
         padding:10,
     },
     progress:{
-        flex:"45%",
         height:80,
         textAlign:'start',
         display:"flex",

@@ -34,6 +34,7 @@ CircularProgressWithLabel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function CircularStatic() {
-  return <CircularProgressWithLabel value={83} />;
+export default function CircularStatic({progress}) {
+  console.log(progress)
+  return <CircularProgressWithLabel value={Number(progress)} />;
 }

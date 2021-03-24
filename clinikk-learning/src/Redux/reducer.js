@@ -2,7 +2,7 @@ import { GET_ALL_COURSES_FAILURE, GET_ALL_COURSES_REQUEST, GET_ALL_COURSES_SUCCE
 
 
 const initState = {
-    user:[],
+    // user:[],
     courses:[]
 }
 
@@ -28,7 +28,6 @@ export const reducer = (state = initState,{type, payload}) => {
         case GET_ALL_COURSES_SUCCESS:
             return {
                 ...state,
-                courses:payload
             }
         case GET_ALL_COURSES_FAILURE:
             return {

@@ -3,13 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     container:{
-        border:"2px solid yellow",
         display:'flex',
         flexDirection:"row"
     },
     completed:{
         display:"flex",
-        // border:"2px solid black",
         flexDirection:"row",
         height:80,
         margin:20,
@@ -22,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
         textAlign:'start',
         display:"flex",
         padding:10,
-        // border:"2px solid black",
         flexDirection:"row",
         margin:15,
         background:"#F5F5F7",
@@ -40,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const CourseCard = () => {
+const CourseProgress = () => {
     const classes = useStyles()
     return(
         <div className={classes.container}>
@@ -56,4 +53,4 @@ const CourseCard = () => {
     )
 }
 
-export default CourseCard
+export default CourseProgress

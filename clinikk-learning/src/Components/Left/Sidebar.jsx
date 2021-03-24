@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
         left: 25.34,
         top: 20,
         marginTop:30,
-        border:"2px solid black",
         // margin:10,
         background: "#0C0B0B",
         // background:"white",

@@ -2,26 +2,25 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import LeftContainer from "./LeftContainer/LeftContainer";
 import RightContainer from "./RightContainer/RightContainer";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     container:{
         width:"100%",
-        border:"2px solid black",
-        height:500,
+        // height:500,
         marginTop:-830,
     },
     main:{
         display:"flex",
         flexDirection:"row",
-        border:"2px solid green",
         margin:"10px",
-        marginLeft:180,
+        marginLeft:150,
     },
     left:{
-        flex:"58%"
+        flex:"68%"
     },
     right:{
-        flex:"40%"
+        flex:"30%"
     }
 }));
 
@@ -31,7 +30,7 @@ const RightComponent = () => {
         <div className={classes.container}>
            <div className={classes.main}>
                 <div className={classes.left}>
-                    <LeftContainer />
+                    <LeftContainer/>
                     </div>
                 <div className={classes.right}>
                     <RightContainer />

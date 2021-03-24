@@ -14,7 +14,7 @@ export const getUserFailure = () => ({
     type:GET_USER_FAILURE
 })
 
-export const getUserData = (payload) => (dispatch) => {
+export const getUserData = () => (dispatch) => {
     dispatch(getUserRequest());
     return axios({
         method:'GET',
@@ -22,7 +22,7 @@ export const getUserData = (payload) => (dispatch) => {
     })
     .then((res) => {
         console.log(res.data.pranay)
-        dispatch(getUserSuccess(res.data))
+        dispatch(getUserSuccess(res.data.pranay))
     })
     .catch((err) => {
         console.log(err)
@@ -35,7 +35,8 @@ export const getAllCoursesRequest = () => ({
 })
 
 export const getAllCoursesSuccess = (payload) => ({
-    type:GET_ALL_COURSES_SUCCESS
+    type:GET_ALL_COURSES_SUCCESS,
+    payload
 })
 
 export const getAllCoursesFailure = () => ({

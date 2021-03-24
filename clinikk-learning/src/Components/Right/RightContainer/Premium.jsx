@@ -36,10 +36,10 @@ export const Premium = () => {
         <Card className={classes.root}>
       <div className={classes.details}>
         <CardContent className={classes.content}>
-          <Typography component="h2" variant="div">
+          <Typography component="h2" variant="body">
             Learn even more!
           </Typography>
-          <Typography variant="p" color="textSecondary">
+          <Typography variant="caption" color="textSecondary">
           Unlock premium features<br/>
             only for $9.99 per month.
           </Typography>

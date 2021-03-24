@@ -7,39 +7,13 @@ import Button from '@material-ui/core/Button';
 import { Avatar } from '@material-ui/core';
 import CircularStatic from './CircularProgress';
 
-const tutorialSteps = [
-  {
-    label: 'San Francisco ',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Bird',
-    imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Bali, Indonesia',
-    imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
-  },
-  {
-    label: 'NeONBRAND Digital Marketing',
-    imgPath:
-      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Goč, Serbia',
-    imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-];
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display:"flex",
     flexDirection:"row",
-    height:50
+    height:50,
+    position:"sticky",
+    width:"500px"
 },
 header: {
     width:"70%",
@@ -67,11 +41,11 @@ header: {
   }
 }));
 
-const CoursesCarousel = () => {
+const CoursesCarousel = ({data},{progress}) => {
+  console.log(data)
   const classes = useStyles();
-  const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = tutorialSteps.length;
+  const maxSteps = data.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -95,16 +69,17 @@ const CoursesCarousel = () => {
       <Paper square elevation={0} className={classes.header}>
         <Avatar
             className={classes.img}
-            src={tutorialSteps[activeStep].imgPath}
-            alt={tutorialSteps[activeStep].label}
+            src={data[activeStep].image}
+            alt={data[activeStep].title}
         />
-        <Typography className={classes.title}>{tutorialSteps[activeStep].label}</Typography>
-        <CircularStatic />
+        <Typography className={classes.title}>{data[activeStep].title}</Typography>
+        <CircularStatic progress={progress}/>
         <Button className={classes.continue}>Continue</Button>
       </Paper>
         <div className={classes.stepper}>
             <MobileStepper
             position="static"
+            steps={maxSteps}
             nextButton={
             <Button size="small" onClick={handleNext}>
                 <img src="https://cdn4.iconfinder.com/data/icons/rounded-line-icons/16/icon_right_arrow_circle_rounded-512.png" alt="next" width="20px"/>

@@ -1,4 +1,4 @@
-import { GET_ALL_COURSES_FAILURE, GET_ALL_COURSES_REQUEST, GET_ALL_COURSES_SUCCESS, GET_USER_FAILURE, GET_USER_REQUEST, GET_USER_SUCCESS } from "./actionType";
+import { GET_ALL_COURSES_FAILURE, GET_ALL_COURSES_REQUEST, GET_ALL_COURSES_SUCCESS, GET_USER_FAILURE, GET_USER_REQUEST, GET_USER_SUCCESS, TOGGLE_CLICK } from "./actionType";
 import axios from "axios";
 
 export const getUserRequest = () => ({
@@ -54,4 +54,13 @@ export const getAllCoursesData = () => (dispatch) => {
         dispatch(getAllCoursesSuccess(res.data))
     })
     .catch((err) => console.log(err))
+}
+
+export const toggleClickStatus = (payload) => ({
+    type:TOGGLE_CLICK,
+    payload
+})
+
+export const setClick = (payload) => (dispatch) => {
+    dispatch(toggleClickStatus(!payload))
 }

@@ -41,7 +41,8 @@ header: {
   }
 }));
 
-const CoursesCarousel = ({data},{progress}) => {
+const CoursesCarousel = ({userData}) => {
+  const data = userData.courses_enrolled
   console.log(data)
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -73,7 +74,7 @@ const CoursesCarousel = ({data},{progress}) => {
             alt={data[activeStep].title}
         />
         <Typography className={classes.title}>{data[activeStep].title}</Typography>
-        <CircularStatic progress={progress}/>
+         <CircularStatic progress={data[activeStep].progress}/>
         <Button className={classes.continue}>Continue</Button>
       </Paper>
         <div className={classes.stepper}>

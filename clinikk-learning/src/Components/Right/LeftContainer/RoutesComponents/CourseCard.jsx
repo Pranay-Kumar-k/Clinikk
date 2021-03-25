@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { Avatar, Button, Typography } from '@material-ui/core';
+import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     course:{
@@ -52,10 +54,24 @@ const useStyles = makeStyles((theme) => ({
       } 
   }));
 
+  
 const CourseCard = ({course}) => {
-    const {image,title,author,duration,rating} = course
-    // console.log(image,title,author,duration,rating)
+    const {id,image,title,author,duration,rating} = course
+    console.log(image,title,author,duration,rating)
     const classes = useStyles()
+    const history = useHistory()
+    const route = useSelector(state => state.user.click)
+    
+    const handleClick = (id,course) => {
+
+            const location = {
+                pathName: `/course/${id}`,
+                state:{
+                    course:course
+                }
+            }
+            history.push( location.pathName )
+    }
     return(
         <Paper elevation={3} className={classes.course}>
             <Avatar variant="rounded"
@@ -78,7 +94,7 @@ const CourseCard = ({course}) => {
                 </svg>
                 <span className={classes.Duration}>{rating}</span>
             </div>
-            <Button className={classes.continue}>View Course</Button>
+            <Button className={classes.continue} onClick={handleClick}>View Course</Button>
         </Paper>
     )
 }

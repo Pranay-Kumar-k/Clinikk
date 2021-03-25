@@ -39,12 +39,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const LeftContainer = () => {
+const LeftContainer = ({setClick}) => {
     const classes = useStyles();
     const User = useSelector(state => state.user.user)
+    console.log(User)
     return(
         <div className={classes.container}>
-            <div className={classes.welcome}>
+           <div className={classes.welcome}>
                 <div className={classes.note}>
                     <h3 className={classes.Title}>Hello Pranay Kumar!</h3>
                     <Typography variant="caption">It's good to see you again.</Typography>
@@ -54,7 +55,7 @@ const LeftContainer = () => {
                 </div>
             </div>
             <div className={classes.recent}>
-                {/* <CoursesCarousel data={courses_enrolled} progress={progress}/> */}
+                <CoursesCarousel userData={User} />
             </div>
             <div className={classes.courses}>
                 <h2>Courses</h2>

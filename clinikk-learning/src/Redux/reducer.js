@@ -1,9 +1,9 @@
-import { GET_ALL_COURSES_FAILURE, GET_ALL_COURSES_REQUEST, GET_ALL_COURSES_SUCCESS, GET_USER_FAILURE, GET_USER_REQUEST, GET_USER_SUCCESS } from "./actionType"
+import { GET_USER_FAILURE, GET_USER_REQUEST, GET_USER_SUCCESS, TOGGLE_CLICK } from "./actionType"
 
 
 const initState = {
-    // user:[],
-    courses:[]
+    user:[],
+    click:false
 }
 
 export const reducer = (state = initState,{type, payload}) => {
@@ -15,23 +15,16 @@ export const reducer = (state = initState,{type, payload}) => {
         case GET_USER_SUCCESS:
             return {
                 ...state,
-                user:payload
+                user:payload,
             }
         case GET_USER_FAILURE:
             return {
                 ...state
             }
-        case GET_ALL_COURSES_REQUEST:
-            return {
-                ...state
-            }
-        case GET_ALL_COURSES_SUCCESS:
+        case TOGGLE_CLICK:
             return {
                 ...state,
-            }
-        case GET_ALL_COURSES_FAILURE:
-            return {
-                ...state
+                click:payload
             }
         default:
             return state

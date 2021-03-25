@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import LeftContainer from "./LeftContainer/LeftContainer";
 import RightContainer from "./RightContainer/RightContainer";
 import { useSelector } from "react-redux";
+import CoursesRoutes from "./LeftContainer/CoursesRoutes/CoursesRoutes";
 
 const useStyles = makeStyles((theme) => ({
     container:{
@@ -26,15 +27,19 @@ const useStyles = makeStyles((theme) => ({
 
 const RightComponent = () => {
     const classes = useStyles();
+    const route = useSelector(state => state.user.click)
+    console.log(route)
     return(
         <div className={classes.container}>
            <div className={classes.main}>
-                <div className={classes.left}>
+                {!route ? (<>
+                    <div className={classes.left}>
                     <LeftContainer/>
-                    </div>
+                </div>
                 <div className={classes.right}>
                     <RightContainer />
-                    </div> 
+                </div> 
+                </>) : <CoursesRoutes />}
            </div>
         </div>
     )
